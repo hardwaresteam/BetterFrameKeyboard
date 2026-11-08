@@ -1,0 +1,53 @@
+{
+  "default_bindings": [
+    {
+      "controller_type": "frame_controller",
+      "binding_url": "bindings_frame_controller.json"
+    },
+    {
+      "controller_type": "knuckles",
+      "binding_url": "bindings_knuckles.json"
+    },
+    {
+      "controller_type": "oculus_touch",
+      "binding_url": "bindings_oculus_touch.json"
+    },
+    {
+      "controller_type": "vive_controller",
+      "binding_url": "bindings_vive_controller.json"
+    },
+    {
+      "controller_type": "generic",
+      "binding_url": "bindings_generic.json"
+    }
+  ],
+  "actions": [
+    {
+      "name": "/actions/betterframe/in/trigger",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/betterframe/in/aim",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/betterframe/out/haptic",
+      "type": "vibration"
+    }
+  ],
+  "action_sets": [
+    {
+      "name": "/actions/betterframe",
+      "usage": "leftright"
+    }
+  ],
+  "localization": [
+    {
+      "language_tag": "en_US",
+      "/actions/betterframe": "BetterFrame Keyboard",
+      "/actions/betterframe/in/trigger": "Type (trigger)",
+      "/actions/betterframe/in/aim": "Aim",
+      "/actions/betterframe/out/haptic": "Key feel"
+    }
+  ]
+}
