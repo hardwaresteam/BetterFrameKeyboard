@@ -50,12 +50,23 @@ Everything is at the top of Steam's **Settings > Keyboard**:
 - Turn the keyboard on or off (off brings SteamVR's own keyboard back)
 - Reset its size, position and tilt
 - Uninstall it
-- Pick a color theme and set how see-through the backdrop is
+- Pick a color theme
+- Set how see-through the backdrop is
 - Put the top bar above or below the keys, or turn it off
+- Bottom row: .?123, Fn, Ctrl, or Ctrl, Fn
+- Button labels on the top bar
 - Always on top
+- Languages
+- Key layout
+- Word suggestions
+- Key preview
 - Holding a key: repeat it, or type its capital
-- Language, key layout, key preview and word suggestions
+- Game controllers: type with the trackpads, the trackpads split in half, Steam's keyboard, or off
+- Trackpad press: Light, Medium or Firm
+- Controller face buttons (A types, X Backspace, Y Space, Menu Enter, B closes, left bumper Shift)
+- Streamed games: type through Steam, or as key presses
 - Key sound: Original, Light or Off
+- Vibrate on each key
 
 To add an emoji to Favorites, hold it for half a second.
 
