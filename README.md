@@ -1,10 +1,12 @@
 # BetterFrame Keyboard
 
-(gotta put keyboard image/video…)
+https://github.com/user-attachments/assets/29c61a42-6596-427a-9c05-5c9858bbe455
+
 An improved customizable keyboard for the Steam Frame. It replaces Steam Frame’s keyboard entirely, adding many requested features and accessibility options.
 
 ## Features
 
+- Select All, Copy, Paste, Cut, Undo
 - Minimal, Standard and Full keyboard layouts
 - Swipe typing
 - Voice typing
@@ -13,14 +15,14 @@ An improved customizable keyboard for the Steam Frame. It replaces Steam Frame�
 - Japanese: romaji, kana and flick input, with kanji conversion
 - Chinese: Zhuyin, Cangjie, Quick and Pinyin
 - Korean: Hangul
+- Steam Controller support
 - Emoji page with Steam emoticons, Recent and Favorites
 - Word suggestions
 - 10 color themes
 - Adjustable transparency backdrop
 - Curvature toggle
-- Undo, Cut, Copy, Paste, Select all
-- Key preview
-- Key sounds toggle
+- Key preview toggle
+- 3 key sound options: Default, Light, Off
 - Resize, tilt and readjust with ease
 - Easy enable/disable toggle, reset and uninstall
 
@@ -37,8 +39,8 @@ The first install takes about a minute, and voice typing finishes setting up by 
 Frame password once, so the keyboard is allowed to type into apps. After that it starts by itself, and repairs itself after
 SteamOS updates.
 
-(gotta put image of full layout 😬)
-BFrame Keyboard’s full keyboard layout.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/041d7e1c-8c0f-4be6-8e8f-21b0cb7413e3" />
+BFrame Keyboard’s standard keyboard layout.
 
 ## Settings
 
@@ -72,8 +74,8 @@ Then restart SteamVR to get its own keyboard back. To delete the files too:
 Download the new zip, delete the old one from Downloads, and run the same install command again. Your settings
 are kept.
 
-(aaaand gotta put minimal layout if any of you are looking through old changes hi lol)
-BFrame Keyboard’s minimal keyboard layout.
+<img width="1355" height="397" alt="image" src="https://github.com/user-attachments/assets/332ee2c3-228f-4582-9b55-99584e30cbe6" />
+BFrame Keyboard’s full keyboard layout.
 
 ## License
 
