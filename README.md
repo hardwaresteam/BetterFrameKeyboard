@@ -22,6 +22,7 @@ An improved customizable keyboard for the Steam Frame. It replaces Steam Frameâ€
 - Adjustable transparency backdrop
 - Curvature toggle
 - Key preview toggle
+- Swappable order for Ctrl & Fn placement 
 - 3 key sound options: Default, Light, Off
 - Resize, tilt and readjust with ease
 - Easy enable/disable toggle, reset and uninstall
