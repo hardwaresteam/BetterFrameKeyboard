@@ -1,0 +1,49 @@
+{
+  "controller_type": "frame_controller",
+  "name": "BetterFrame Keyboard",
+  "description": "Type with both lasers",
+  "bindings": {
+    "/actions/betterframe": {
+      "sources": [
+        {
+          "path": "/user/hand/left/input/trigger",
+          "mode": "trigger",
+          "inputs": {
+            "pull": {
+              "output": "/actions/betterframe/in/trigger"
+            }
+          }
+        },
+        {
+          "path": "/user/hand/right/input/trigger",
+          "mode": "trigger",
+          "inputs": {
+            "pull": {
+              "output": "/actions/betterframe/in/trigger"
+            }
+          }
+        }
+      ],
+      "poses": [
+        {
+          "output": "/actions/betterframe/in/aim",
+          "path": "/user/hand/left/pose/tip"
+        },
+        {
+          "output": "/actions/betterframe/in/aim",
+          "path": "/user/hand/right/pose/tip"
+        }
+      ],
+      "haptics": [
+        {
+          "output": "/actions/betterframe/out/haptic",
+          "path": "/user/hand/left/output/haptic"
+        },
+        {
+          "output": "/actions/betterframe/out/haptic",
+          "path": "/user/hand/right/output/haptic"
+        }
+      ]
+    }
+  }
+}

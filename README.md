@@ -20,6 +20,7 @@ An improved customizable keyboard for the Steam Frame. It replaces Steam Frameâ€
 - Word suggestions
 - 10 color themes
 - Adjustable transparency backdrop
+- Fade when not aiming: unless both controllers point at it, the keyboard turns see-through and lets the lasers through to what's behind it (a small button on its bottom edge turns this on and off)
 - Curvature toggle
 - Key preview toggle
 - Swappable order for Ctrl & Fn placement 
@@ -56,6 +57,7 @@ Everything is at the top of Steam's **Settings > Keyboard**:
 - Bottom row: .?123, Fn, Ctrl, or Ctrl, Fn
 - Button labels on the top bar
 - Always on top
+- Fade when not aiming, and how visible it is while faded
 - Languages
 - Key layout
 - Word suggestions

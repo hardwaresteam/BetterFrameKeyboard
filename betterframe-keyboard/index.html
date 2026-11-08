@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BetterFrame Keyboard</title>
+<style>
+:root{--bg:#070B12;--panel:#111821;--line:rgba(220,232,245,.12);--fg:#fff;--muted:#9AA3AD;--accent:#1A9FFF;--ok:#7BE04A;--warn:#FFB547;color-scheme:dark}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,"Noto Sans","DejaVu Sans",sans-serif;overflow:hidden}
+#stage{position:fixed;inset:0}
+#stage canvas{display:block}
+#start{position:fixed;left:16px;top:16px;width:min(420px,calc(100% - 32px));box-sizing:border-box;padding:18px;border-radius:16px;background:rgba(17,24,33,.94);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;z-index:2}
+#start h1{margin:0;font-size:20px}
+#start p{margin:0;color:var(--muted);font-size:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button{height:46px;padding:0 16px;border-radius:12px;border:none;background:rgba(255,255,255,.08);color:#fff;font:700 15px system-ui,sans-serif;cursor:pointer}
+button:hover{background:rgba(255,255,255,.14)}
+button.primary{background:var(--accent)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible{outline:3px solid #8FCBFF;outline-offset:2px}
+.stat{display:flex;flex-direction:column;gap:4px;font-size:14px}
+.stat span b{display:inline-block;min-width:118px;color:var(--muted);font-weight:600}
+.ok{color:var(--ok)}.warn{color:var(--warn)}
+#hide{align-self:flex-start;height:36px;font-size:13px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;font-size:13px;color:var(--muted)}
+.opts label{display:flex;flex-direction:column;gap:4px}
+.opts input[type=range]{width:100%;accent-color:var(--accent)}
+.opts select{height:36px;border-radius:8px;background:#18212C;color:#fff;border:1px solid var(--line);font:600 14px system-ui,sans-serif}
+</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head>
+<body>
+<div id="stage"></div>
+<section id="start" aria-label="Start">
+  <h1>BetterFrame Keyboard</h1>
+  <p id="xrMsg">Checking for VR…</p>
+  <div class="row">
+    <button class="primary" id="enterVR" disabled>Enter VR</button>
+    <button id="enterAR" hidden>Enter with room view</button>
+  </div>
+  <div class="row"><button id="micBtn">Allow microphone</button><button id="testVoice">Test the voice</button></div>
+  <div class="stat" aria-live="polite">
+    <span><b>Voice typing</b> <em id="sttStat">checking…</em></span>
+    <span><b>Speak on Enter</b> <em id="ttsStat">checking…</em></span>
+    <span><b>Microphone</b> <em id="micStat">not asked yet</em></span>
+  </div>
+  <div class="opts" aria-label="Keyboard options">
+    <label>Curve <input type="range" id="optCurve" min="0" max="40" step="1"></label>
+    <label>Key size <select id="optSize"><option value="s">Small</option><option value="m">Medium</option><option value="l">Large</option></select></label>
+    <label>Typing sounds <select id="optSnd"><option value="1">On</option><option value="0">Off</option></select></label>
+    <label>Type by touching keys <select id="optTouch"><option value="1">On</option><option value="0">Off</option></select></label>
+    <label>Speaking speed <input type="range" id="optRate" min="0.6" max="1.6" step="0.1"></label>
+  </div>
+  <p>In VR: point and pull the trigger lightly, or tap keys with the blue dots on your controllers. To move it, hold the trigger on the bar under the keyboard, or hold the grip anywhere; push the stick forward or back while moving to push it away or pull it closer. Mic types as you talk. On a flat screen you can try it with the mouse.</p>
+  <button id="hide">Hide this panel</button>
+</section>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

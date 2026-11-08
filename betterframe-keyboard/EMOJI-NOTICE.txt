@@ -1,0 +1,2 @@
+Emoji list and order: Unicode emoji-test.txt (Emoji 15.1); search words: Unicode CLDR English annotations.
+Both (c) Unicode, Inc., used under the Unicode License v3 (https://www.unicode.org/license.txt).
