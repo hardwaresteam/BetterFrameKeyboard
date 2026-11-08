@@ -25,6 +25,7 @@ An improved customizable keyboard for the Steam Frame. It replaces Steam Frameâ€
 - Fn key with media keys, and double-tap Ctrl, Alt or Fn to lock it on
 - 10 color themes
 - Adjustable transparency backdrop
+- Fade when not aiming: unless both controllers point at it, the keyboard turns see-through and lets the lasers through to what's behind it (a small button on its bottom edge turns this on and off)
 - Curvature toggle
 - Undo, Cut, Copy, Paste, Select all
 - Key preview, key sounds and button labels
@@ -59,6 +60,7 @@ Everything is at the top of Steam's **Settings > Keyboard**:
 - Bottom row: .?123, Fn, Ctrl, or Ctrl, Fn like a laptop
 - Button labels on the top bar
 - Always on top
+- Fade when not aiming, and how visible it is while faded
 - Holding a key: repeat it, or type its capital
 - Language, key layout, key preview and word suggestions
 - Game controllers: type with the trackpads, the trackpads split in half, Steam's keyboard, or off

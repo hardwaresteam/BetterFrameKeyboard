@@ -181,6 +181,11 @@ S = [
      {"default": True, "desc": "Shows what a top bar button does when you point at it"}),
     ("kb_ontop", "Keyboard", "Look", "Always on top", "switch", "pref", None,
      {"default": False, "desc": "Shows the keyboard in front of other windows"}),
+    ("kb_aimfade", "Keyboard", "Look", "Fade when not aiming", "switch", "pref", None,
+     {"default": True, "desc": "Unless both lasers point at the keyboard, it turns see-through and the lasers pass "
+                               "through it to what's behind. The small button on its bottom edge turns this on and off too"}),
+    ("kb_aimfade_op", "Keyboard", "Look", "How visible when faded", "slider", "pref", None,
+     {"default": 25, "min": 5, "max": 100, "step": 5, "unit": "%"}),
     ("kb_lang", "Keyboard", "Typing", "Language", "choice", "pref", None,
      {"default": "en-US", "options": _lang_options(), "desc": "The keyboard's letters, word suggestions and voice typing"}),
     ("kb_fmt", "Keyboard", "Typing", "Key layout", "choice", "pref", None,
@@ -487,4 +492,4 @@ if __name__ == "__main__":
 
 
 # (the keyboard on its own: only its own settings)
-S = [x for x in S if x[0] in ("kb_theme", "kb_backdrop", "kb_bar", "kb_bottom", "kb_tips", "kb_gamepad", "kb_padbuttons", "kb_padpress", "kb_ontop", "kb_stream", "kb_hold", "kb_lang", "kb_preview", "kb_words", "kb_fmt", "kb_sound", "kb_haptics")]
+S = [x for x in S if x[0] in ("kb_theme", "kb_backdrop", "kb_bar", "kb_bottom", "kb_tips", "kb_gamepad", "kb_padbuttons", "kb_padpress", "kb_ontop", "kb_aimfade", "kb_aimfade_op", "kb_stream", "kb_hold", "kb_lang", "kb_preview", "kb_words", "kb_fmt", "kb_sound", "kb_haptics")]

@@ -3323,7 +3323,11 @@ class Gaze:
             app.press(app.items[k][0])
 
 
-class App:
+from aimfade import AimFade, bind as _aim_bind   # fade when not aiming (see aimfade.py)
+_aim_bind(make_matrix=make_matrix, mat_to_pos_rot=mat_to_pos_rot, save_conf=save_conf, pal=lambda: PAL)
+
+
+class App(AimFade):
     def __init__(self):
         import openvr
         self.vr = openvr
@@ -3694,6 +3698,7 @@ class App:
         self.live_pending, self.last_live = None, 0
         self.hl = self.ov.createOverlay("betterframe.keyboard.highlight", "BetterFrame Keyboard highlight")
         self.set_sort(self.hl, 11)
+        self.aim_init()          # fade when not aiming: its button, and the keyboard solid to start with
         self.tog = None  # small open/close button on the left controller: off unless "hand_button": true
         if self.conf.get("hand_button"):
             self.tog = self.ov.createOverlay("betterframe.keyboard.toggle", "BetterFrame Keyboard button")
@@ -3743,6 +3748,7 @@ class App:
             except Exception as e:
                 LOG("multi-laser mode unavailable:", e)
                 self.multi = False
+        self.aim_apply_input(h)   # (see-through right now: a fresh copy lets the lasers through too)
         self.set_sort(h, 10)
         return h
 
@@ -3951,6 +3957,7 @@ class App:
         v = [P[k] - o[k] for k in range(3)]
         n = math.sqrt(sum(a * a for a in v)) or 1.0
         self.lcal[dev] = ([sum(rr[i][j] * v[i] for i in range(3)) / n for j in range(3)], now)
+        self.aim_learn(dev, self.lcal[dev][0])   # (so it can tell when this hand points back at it while see-through)
 
     def check_stolen(self):
         """If a laser is clearly moving over the keyboard but SteamVR sends the keyboard nothing, something
@@ -4186,6 +4193,7 @@ class App:
         if getattr(self, "wing_on", False):
             pos, WR = self.wing_pose()
             self.ov.setOverlayTransformAbsolute(self.wing, self.vr.TrackingUniverseStanding, make_matrix(self.vr, pos, WR))
+        self.aim_place_toggle()   # (the fade button moves with it)
 
     def curve_r(self):
         """Radius the keyboard bends around (metres), or None when it's flat."""
@@ -4425,7 +4433,7 @@ class App:
                 self.ov.showOverlay(new)
                 self.fade = {"new": new, "old": old, "t0": time.time()}
             else:
-                self.ov.setOverlayAlpha(new, 1.0)
+                self.ov.setOverlayAlpha(new, self.aim_alpha())
                 self.ov.showOverlay(new)
                 self.pending_hide = (old, time.time() + 0.03)  # hide the old picture once the new one is up
         self.dirty = False
@@ -4445,18 +4453,19 @@ class App:
             x = max(0.0, min(1.0, x))
             return x * x * (3 - 2 * x)
         # the old one is mostly gone before the new one comes in, so they never sit half-see-through on top of each other
-        self.ov.setOverlayAlpha(f["old"], 1 - ease(t / 0.55))
-        self.ov.setOverlayAlpha(f["new"], ease((t - 0.4) / 0.6))
+        a = self.aim_alpha()   # (faded because a laser looked away: the switch between sizes stays faded)
+        self.ov.setOverlayAlpha(f["old"], a * (1 - ease(t / 0.55)))
+        self.ov.setOverlayAlpha(f["new"], a * ease((t - 0.4) / 0.6))
 
     def finish_fade(self):
         f = getattr(self, "fade", None)
         if not f:
             return
         self.fade = None
-        self.ov.setOverlayAlpha(f["new"], 1.0)
+        self.ov.setOverlayAlpha(f["new"], self.aim_alpha())
         if f["old"] != self.handle:
             self.ov.hideOverlay(f["old"])
-        self.ov.setOverlayAlpha(f["old"], 1.0)
+        self.ov.setOverlayAlpha(f["old"], self.aim_alpha())
 
     # ---- hover highlight on its own overlay (no keyboard redraw while you move the laser)
     def hl_for(self, slot):
@@ -5941,6 +5950,7 @@ class App:
                 self.st["mic"], self.st["live"] = False, ""
                 self.pop_live = ""
                 self.dirty = True
+        self.aim_on_visible(on)
         self.upload_toggle()
 
     def toggle(self):
@@ -7168,6 +7178,7 @@ class App:
                 self.place_highlight()
             except Exception:
                 pass
+        self.aim_prefs(p)   # Fade when not aiming, and how visible it is then
 
     def click_feel(self, dev):
         """A short tick in the controller that typed (Settings > Keyboard > Controller click)."""
@@ -8173,6 +8184,7 @@ class App:
                         break
                     if e.eventType == vr.VREvent_MouseButtonDown:
                         self.toggle()
+                self.aim_events(ev)   # the fade button (takes the laser even while the keyboard is see-through)
                 while self.system.pollNextEvent(ev):
                     t = ev.eventType
                     if t == vr.VREvent_Quit:
@@ -8247,6 +8259,7 @@ class App:
                             self.place_bubble(sl, idx)
                 self.update_drag()
                 self.update_fade()
+                self.aim_tick()       # solid while both lasers are on it, see-through (and let through) when one looks away
                 self.update_trail()
                 self.update_words()
                 self.update_popup()
