@@ -11,6 +11,7 @@ An improved customizable keyboard for the Steam Frame. It replaces Steam Frameâ€
 - Swipe typing
 - Voice typing
 - 41 languages with native layouts
+- Streaming support
 - QWERTY, QWERTZ, AZERTY, Dvorak, Colemak, Colemak-DH
 - Japanese: romaji, kana and flick input, with kanji conversion
 - Chinese: Zhuyin, Cangjie, Quick and Pinyin
