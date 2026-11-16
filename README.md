@@ -29,11 +29,11 @@ An improved customizable keyboard for the Steam Frame. It replaces Steam Frameâ€
 
 ## Install
 
-On the Frame, in Desktop Mode, download `betterframe-keyboard-1.0.0.zip` from this page's
+On the Frame, in Desktop Mode, download `betterframe-keyboard-1.1.0.zip` from this page's
 [Releases](../../releases/latest) into Downloads, open Konsole and run:
 
 ```
-cd ~ && python3 -m zipfile -e ~/Downloads/betterframe-keyboard-1.0.0.zip . && bash ~/betterframe-keyboard/install.sh
+cd ~ && python3 -m zipfile -e ~/Downloads/betterframe-keyboard-1.1.0.zip . && bash ~/betterframe-keyboard/install.sh
 ```
 
 The first install takes about a minute, and voice typing finishes setting up by itself within 5 minutes. It asks for your
