@@ -55,7 +55,6 @@ Everything is at the top of Steam's **Settings > Keyboard**:
 - Put the top bar above or below the keys, or turn it off
 - Bottom row: .?123, Fn, Ctrl, or Ctrl, Fn
 - Button labels on the top bar
-- Always on top
 - Languages
 - Key layout
 - Word suggestions
